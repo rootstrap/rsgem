@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Juan Manuel Ramallo']
   spec.email         = ['ramallojuanm@gmail.com']
 
-  spec.summary       = 'Gem to generate gems the Rootstrap way'
+  spec.summary       = 'Generating gems the Rootstrap way'
   spec.homepage      = 'https://github.com/rootstrap/rootstrap-ruby'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
