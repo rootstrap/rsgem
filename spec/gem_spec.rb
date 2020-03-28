@@ -49,7 +49,7 @@ RSpec.describe Rootstrap::Gem do
     end
 
     it 'leaves only one last new line character in the gemfile' do
-      expect(gemfile[gemfile.size - 2..].count("\n")).to eq 1
+      expect(gemfile[gemfile.size - 2..gemfile.size].count("\n")).to eq 1
     end
   end
 end
