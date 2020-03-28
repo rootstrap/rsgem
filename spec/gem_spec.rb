@@ -10,6 +10,7 @@ RSpec.describe Rootstrap::Gem do
     let(:list_files) { `ls -a`.split("\n") }
     let(:list_files_gem) { `ls -a #{gem_name}`.split("\n") }
     let(:gemspec) { File.open("./#{gem_name}/#{gem_name}.gemspec").read }
+    let(:gemfile) { File.open("./#{gem_name}/Gemfile").read }
 
     it 'creates a new folder' do
       expect(list_files).to include gem_name
@@ -37,6 +38,18 @@ RSpec.describe Rootstrap::Gem do
 
     it 'adds the reek config file' do
       expect(list_files_gem).to include '.rubocop.yml'
+    end
+
+    it 'removes the default gems from the gemfile' do
+      expect(gemfile).not_to match(/gem /)
+    end
+
+    it 'includes the base gemspec in the gemfile' do
+      expect(gemfile).to include 'gemspec'
+    end
+
+    it 'leaves only one last new line character in the gemfile' do
+      expect(gemfile[gemfile.size - 2..].count("\n")).to eq 1
     end
   end
 end
