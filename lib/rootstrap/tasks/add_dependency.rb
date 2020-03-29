@@ -33,7 +33,7 @@ module Rootstrap
       end
 
       def gemspec_file
-        @gemspec_file ||= File.open(gemspec_path).read
+        @gemspec_file ||= File.read(gemspec_path)
       end
 
       def write_to_gemspec

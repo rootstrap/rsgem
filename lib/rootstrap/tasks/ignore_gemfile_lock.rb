@@ -23,7 +23,7 @@ module Rootstrap
       private
 
       def gitignore
-        @gitignore ||= File.open(context.gitignore_path).read
+        @gitignore ||= File.read(context.gitignore_path)
       end
 
       def write_to_gitignore

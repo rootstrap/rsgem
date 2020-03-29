@@ -30,7 +30,7 @@ module Rootstrap
       private
 
       def gemfile
-        @gemfile ||= File.open(context.gemfile_path).read
+        @gemfile ||= File.read(context.gemfile_path)
       end
 
       def write_to_gemfile

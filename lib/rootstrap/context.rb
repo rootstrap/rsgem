@@ -19,5 +19,9 @@ module Rootstrap
     def gitignore_path
       "#{folder_path}/.gitignore"
     end
+
+    def rakefile_path
+      "#{folder_path}/Rakefile"
+    end
   end
 end
