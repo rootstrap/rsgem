@@ -13,10 +13,7 @@ module Rootstrap
 
       add_dependencies
       clean_gemfile
-
-      # TODO: Remove gems from Gemfile
-      # TODO: Add a rake task for code analysis
-      # TODO: Configure CI
+      ignore_gemfile_lock
     end
 
     private
@@ -39,6 +36,10 @@ module Rootstrap
 
     def context
       @context ||= Rootstrap::Context.new(gem_name: gem_name)
+    end
+
+    def ignore_gemfile_lock
+      Rootstrap::Tasks::IgnoreGemfileLock.new(context: context).ignore
     end
   end
 end

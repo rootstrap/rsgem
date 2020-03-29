@@ -11,6 +11,7 @@ RSpec.describe Rootstrap::Gem do
     let(:list_files_gem) { `ls -a #{gem_name}`.split("\n") }
     let(:gemspec) { File.open("./#{gem_name}/#{gem_name}.gemspec").read }
     let(:gemfile) { File.open("./#{gem_name}/Gemfile").read }
+    let(:gitignore) { File.open("./#{gem_name}/.gitignore").read }
 
     it 'creates a new folder' do
       expect(list_files).to include gem_name
@@ -50,6 +51,10 @@ RSpec.describe Rootstrap::Gem do
 
     it 'leaves only one last new line character in the gemfile' do
       expect(gemfile[gemfile.size - 2..gemfile.size].count("\n")).to eq 1
+    end
+
+    it 'adds the Gemfile.lock file into the git ignored files' do
+      expect(gitignore).to include 'Gemfile.lock'
     end
   end
 end
