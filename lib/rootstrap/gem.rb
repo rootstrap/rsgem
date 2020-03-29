@@ -12,6 +12,7 @@ module Rootstrap
       `bundle gem #{gem_name}`
 
       add_dependencies
+      clean_gemfile
 
       # TODO: Remove gems from Gemfile
       # TODO: Add a rake task for code analysis
@@ -30,6 +31,10 @@ module Rootstrap
       ].each do |dependency|
         Tasks::AddDependency.new(context: context, dependency: dependency).add
       end
+    end
+
+    def clean_gemfile
+      Tasks::CleanGemfile.new(context: context).clean
     end
 
     def context

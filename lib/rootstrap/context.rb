@@ -8,6 +8,10 @@ module Rootstrap
       @gem_name = gem_name
     end
 
+    def gemfile_path
+      "#{folder_path}/Gemfile"
+    end
+
     def folder_path
       `pwd`.sub("\n", '/') + gem_name
     end
