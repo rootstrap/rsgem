@@ -1,6 +1,15 @@
+# frozen_string_literal: true
+
 require 'rootstrap/version'
+require 'rootstrap/gem'
+require 'rootstrap/context'
+require 'rootstrap/tasks/add_dependency'
+require 'rootstrap/dependencies/base_dependency'
+require 'rootstrap/dependencies/rake'
+require 'rootstrap/dependencies/reek'
+require 'rootstrap/dependencies/rspec'
+require 'rootstrap/dependencies/rubocop'
+require 'rootstrap/dependencies/simplecov'
 
 module Rootstrap
-  class Error < StandardError; end
-  # Your code goes here...
 end
