@@ -1,6 +1,6 @@
 # Rootstrap Gem Generator
 
-[![Build Status](https://travis-ci.com/rootstrap/rootstrap-ruby.svg?branch=master)](https://travis-ci.com/rootstrap/rootstrap-ruby)
+![build](https://github.com/rootstrap/rootstrap-ruby/workflows/build/badge.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/c22da1693543a6eac7e9/maintainability)](https://codeclimate.com/github/rootstrap/rootstrap-ruby/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/c22da1693543a6eac7e9/test_coverage)](https://codeclimate.com/github/rootstrap/rootstrap-ruby/test_coverage)
 
