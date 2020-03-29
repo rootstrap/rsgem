@@ -11,7 +11,7 @@ module Rootstrap
         @config_file_destination = config_file_destination
         @mode = mode # Either `development' or `runtime'
         @name = name
-        @version = "'#{version}'"
+        @version = version ? "'#{version}'" : nil
       end
 
       def install(context)

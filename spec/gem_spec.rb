@@ -16,11 +16,15 @@ RSpec.describe Rootstrap::Gem do
     end
 
     it 'adds the default gems to the gemspec' do
-      expect(gemspec).to include 'rake'
-      expect(gemspec).to include 'reek'
-      expect(gemspec).to include 'rspec'
-      expect(gemspec).to include 'rubocop'
-      expect(gemspec).to include 'simplecov'
+      expect(gemspec).to include(
+        <<-RUBY
+  spec.add_development_dependency 'rake'
+  spec.add_development_dependency 'reek'
+  spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'simplecov', '~> 0.17.1'
+        RUBY
+      )
     end
 
     it 'assigns a version to simplecov' do
