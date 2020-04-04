@@ -3,6 +3,7 @@
 require 'rootstrap/version'
 require 'rootstrap/gem'
 require 'rootstrap/context'
+require 'rootstrap/tasks/add_code_analysis'
 require 'rootstrap/tasks/add_dependency'
 require 'rootstrap/tasks/clean_gemfile'
 require 'rootstrap/tasks/ignore_gemfile_lock'

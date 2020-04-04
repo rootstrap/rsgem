@@ -11,12 +11,17 @@ module Rootstrap
     def create
       `bundle gem #{gem_name}`
 
+      add_code_analysis
       add_dependencies
       clean_gemfile
       ignore_gemfile_lock
     end
 
     private
+
+    def add_code_analysis
+      Tasks::AddCodeAnalysis.new(context: context).add
+    end
 
     def add_dependencies
       [

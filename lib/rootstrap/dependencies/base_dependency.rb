@@ -27,7 +27,7 @@ module Rootstrap
       private
 
       def config_file_source_content
-        File.open(config_file_source).read
+        File.read(config_file_source)
       end
     end
   end
