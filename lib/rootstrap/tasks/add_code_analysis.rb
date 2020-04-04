@@ -10,19 +10,15 @@ module Rootstrap
       end
 
       def add
-        write_to_rakefile
+        File.open(context.rakefile_path, 'w') do |file|
+          file.puts rakefile
+        end
       end
 
       private
 
       def rakefile
         @rakefile ||= File.read("#{File.dirname(__FILE__)}/../support/Rakefile")
-      end
-
-      def write_to_rakefile
-        File.open(context.rakefile_path, 'w') do |file|
-          file.puts rakefile
-        end
       end
     end
   end
