@@ -6,11 +6,14 @@ RSpec.describe RSGem::Gem do
   describe '#create' do
     before(:all) do
       @previous_git_user_name = `git config user.name`
+      @previous_git_user_email = `git config user.email`
       `git config user.name Testing`
+      `git config user.email testing@example.com`
       described_class.new(gem_name: gem_name).create
     end
     after(:all) do
       `git config user.name '#{@previous_git_user_name}'`
+      `git config user.email '#{@previous_git_user_email}'`
       `rm -rf ./#{gem_name}`
     end
 
