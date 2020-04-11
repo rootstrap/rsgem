@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Rootstrap
+module RSGem
   module Dependencies
     Rubocop = Base.new(
       config_file_source: "#{File.dirname(__FILE__)}/../support/rubocop.yml",

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Rootstrap
+module RSGem
   module Dependencies
     class Base
       attr_reader :config_file_destination, :config_file_source, :mode, :name, :version

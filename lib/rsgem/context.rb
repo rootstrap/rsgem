@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Rootstrap
+module RSGem
   class Context
     attr_reader :gem_name
 

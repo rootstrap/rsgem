@@ -1,19 +1,19 @@
-# Rootstrap Gem Generator
+# `rsgem` - Rootstrap's gem generator
 
-![build](https://github.com/rootstrap/rootstrap-ruby/workflows/build/badge.svg)
-[![Maintainability](https://api.codeclimate.com/v1/badges/c22da1693543a6eac7e9/maintainability)](https://codeclimate.com/github/rootstrap/rootstrap-ruby/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/c22da1693543a6eac7e9/test_coverage)](https://codeclimate.com/github/rootstrap/rootstrap-ruby/test_coverage)
+![build](https://github.com/rootstrap/rsgem/workflows/build/badge.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/c22da1693543a6eac7e9/maintainability)](https://codeclimate.com/github/rootstrap/rsgem/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/c22da1693543a6eac7e9/test_coverage)](https://codeclimate.com/github/rootstrap/rsgem/test_coverage)
 
-Rootstrap is a gem to help you start developing gems
+`rsgem` is a tool to help you start developing gems with the defaults we use at Rootstrap.
 
 ## Installation
 
 Install it yourself as:
 
-    $ gem install rootstrap
+    $ gem install rsgem
 
-We highly suggest to not include _Rootstrap_ in your Gemfile.
-_Rootstrap_ is not a library, and should not affect the dependency tree of your application.
+We highly suggest to not include `rsgem` in your Gemfile.
+`rsgem` is not a library, and should not affect the dependency tree of your application.
 
 ## Usage
 
@@ -27,7 +27,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/rootstrap/rootstrap-ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/rootstrap/rootstrap/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/rootstrap/rsgem. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/rootstrap/rsgem/blob/master/CODE_OF_CONDUCT.md).
 
 
 ## License
@@ -36,4 +36,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Rootstrap project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/rootstrap/rootstrap/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Rootstrap project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/rootstrap/rsgem/blob/master/CODE_OF_CONDUCT.md).

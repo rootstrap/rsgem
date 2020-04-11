@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Rootstrap
+module RSGem
   module Tasks
     #
     # Gemfile.lock should be gitignored when developing gems

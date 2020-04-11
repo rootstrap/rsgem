@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Rootstrap
+module RSGem
   class Gem
     attr_reader :gem_name
 
@@ -40,11 +40,11 @@ module Rootstrap
     end
 
     def context
-      @context ||= Rootstrap::Context.new(gem_name: gem_name)
+      @context ||= Context.new(gem_name: gem_name)
     end
 
     def ignore_gemfile_lock
-      Rootstrap::Tasks::IgnoreGemfileLock.new(context: context).ignore
+      Tasks::IgnoreGemfileLock.new(context: context).ignore
     end
   end
 end
