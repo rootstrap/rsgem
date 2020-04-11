@@ -15,6 +15,8 @@ module RSGem
       add_dependencies
       clean_gemfile
       ignore_gemfile_lock
+      clean_gemspec
+      run_rubocop
     end
 
     private
@@ -39,12 +41,20 @@ module RSGem
       Tasks::CleanGemfile.new(context: context).clean
     end
 
+    def clean_gemspec
+      Tasks::CleanGemspec.new(context: context).clean
+    end
+
     def context
       @context ||= Context.new(gem_name: gem_name)
     end
 
     def ignore_gemfile_lock
       Tasks::IgnoreGemfileLock.new(context: context).ignore
+    end
+
+    def run_rubocop
+      Tasks::RunRubocop.new(context: context).run
     end
   end
 end

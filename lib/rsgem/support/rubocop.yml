@@ -14,7 +14,7 @@ Metrics/AbcSize:
   Max: 15
 
 Metrics/BlockLength:
-  CountComments: false  # count full line comments?
+  CountComments: false
   Max: 25
   Exclude:
     - '*.gemspec'
@@ -27,7 +27,7 @@ Metrics/BlockNesting:
   Max: 4
 
 Metrics/ClassLength:
-  CountComments: false  # count full line comments?
+  CountComments: false
   Max: 200
 
 # Avoid complex methods.
@@ -35,11 +35,11 @@ Metrics/CyclomaticComplexity:
   Max: 7
 
 Metrics/MethodLength:
-  CountComments: false  # count full line comments?
+  CountComments: false
   Max: 24
 
 Metrics/ModuleLength:
-  CountComments: false  # count full line comments?
+  CountComments: false
   Max: 200
 
 Layout/LineLength:

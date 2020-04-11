@@ -24,7 +24,7 @@ module RSGem
         gemfile.gsub!(/gem .+\n/, '') # Remove all gem definitions
         gemfile.sub!(/\n\z/, '') # Remove last new line character
         write_to_gemfile
-        puts "\t Gemfile cleaned"
+        puts "\tGemfile cleaned"
       end
 
       private

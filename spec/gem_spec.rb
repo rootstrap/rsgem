@@ -18,16 +18,24 @@ RSpec.describe RSGem::Gem do
       expect(list_files).to include gem_name
     end
 
-    it 'adds the default gems to the gemspec' do
-      expect(gemspec).to include(
-        <<-RUBY
-  spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'reek'
-  spec.add_development_dependency 'rspec'
-  spec.add_development_dependency 'rubocop'
-  spec.add_development_dependency 'simplecov', '~> 0.17.1'
-        RUBY
-      )
+    it 'adds reek to the gemspec' do
+      expect(gemspec).to include "spec.add_development_dependency 'reek'"
+    end
+
+    it 'adds rubocop to the gemspec' do
+      expect(gemspec).to include "spec.add_development_dependency 'rubocop'"
+    end
+
+    it 'adds simplecov to the gemspec' do
+      expect(gemspec).to include "spec.add_development_dependency 'simplecov', '~> 0.17.1'"
+    end
+
+    it 'adds rake to the gemspec if needed' do
+      expect(gemspec.scan('rake').size).to eq 1
+    end
+
+    it 'adds rspec to the gemspec if needed' do
+      expect(gemspec.scan('rspec').size).to eq 1
     end
 
     it 'assigns a version to simplecov' do
@@ -67,6 +75,16 @@ RSpec.describe RSGem::Gem do
           end
         RUBY
       )
+    end
+
+    context 'running inside the new gem' do
+      before { Dir.chdir(gem_name) }
+      after { Dir.chdir('../') }
+
+      it 'makes the code analysis task pass' do
+        load File.expand_path("../#{gem_name}/Rakefile", __dir__)
+        expect { Rake::Task['code_analysis'].invoke }.not_to raise_error
+      end
     end
   end
 end

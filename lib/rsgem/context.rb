@@ -12,6 +12,10 @@ module RSGem
       "#{folder_path}/Gemfile"
     end
 
+    def gemspec_path
+      "#{folder_path}/#{gem_name}.gemspec"
+    end
+
     def folder_path
       `pwd`.sub("\n", '/') + gem_name
     end
