@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Rootstrap
+module RSGem
   module Tasks
     class AddCodeAnalysis
       attr_reader :context

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module Rootstrap
+module RSGem
   module Dependencies
-    Rake = Base.new(name: 'rake')
+    RSpec = Base.new(name: 'rspec')
   end
 end

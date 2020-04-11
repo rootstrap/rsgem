@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Rootstrap::Gem do
+RSpec.describe RSGem::Gem do
   gem_name = 'test'
 
   describe '#create' do
