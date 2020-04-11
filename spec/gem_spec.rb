@@ -4,8 +4,15 @@ RSpec.describe RSGem::Gem do
   gem_name = 'test'
 
   describe '#create' do
-    before(:all) { described_class.new(gem_name: gem_name).create }
-    after(:all) { `rm -rf ./#{gem_name}` }
+    before(:all) do
+      @previous_git_user_name = `git config user.name`
+      `git config user.name Testing`
+      described_class.new(gem_name: gem_name).create
+    end
+    after(:all) do
+      `git config user.name '#{@previous_git_user_name}'`
+      `rm -rf ./#{gem_name}`
+    end
 
     let(:list_files) { `ls -a`.split("\n") }
     let(:list_files_gem) { `ls -a #{gem_name}`.split("\n") }
