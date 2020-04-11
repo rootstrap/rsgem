@@ -26,7 +26,7 @@ module RSGem
       end
 
       def already_installed?
-        gemspec_file.match? /('|")#{dependency.name}('|")/
+        gemspec_file.match? Regexp.new("('|\")#{dependency.name}('|\")")
       end
 
       def code
