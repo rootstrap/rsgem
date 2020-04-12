@@ -17,7 +17,7 @@ module RSGem
       def ignore
         gitignore << "\nGemfile.lock\n"
         write_to_gitignore
-        puts 'Gemfile.lock added to .gitignore'
+        puts "\tGemfile.lock added to .gitignore"
       end
 
       private

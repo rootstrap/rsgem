@@ -2,6 +2,8 @@
 
 require 'bundler/setup'
 require 'simplecov'
+require 'pry'
+require 'rake'
 
 SimpleCov.start do
   add_filter '/spec/'
