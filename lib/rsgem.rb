@@ -20,6 +20,10 @@ require 'rsgem/dependencies/rspec'
 require 'rsgem/dependencies/rubocop'
 require 'rsgem/dependencies/simplecov'
 require 'rsgem/context'
+require 'dry/cli'
+require 'rsgem/cli/commands/new'
+require 'rsgem/cli/commands/version'
+require 'rsgem/cli/commands'
 
 module RSGem
 end
