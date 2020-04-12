@@ -17,6 +17,7 @@ module RSGem
       ignore_gemfile_lock
       add_ci_provider
       clean_gemspec
+      set_bundled_files
       run_rubocop
     end
 
@@ -60,6 +61,10 @@ module RSGem
 
     def run_rubocop
       Tasks::RunRubocop.new(context: context).run
+    end
+
+    def set_bundled_files
+      Tasks::SetBundledFiles.new(context: context).set
     end
   end
 end
