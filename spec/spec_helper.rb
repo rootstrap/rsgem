@@ -27,8 +27,15 @@ RSpec.configure do |config|
   config.before(:all) do
     $stderr = File.open(File::NULL, 'w')
     $stdout = File.open(File::NULL, 'w')
+    @previous_git_user_name = `git config user.name`.strip
+    @previous_git_user_email = `git config user.email`.strip
+    `git config user.name Testing`
+    `git config user.email testing@example.com`
   end
+
   config.after(:all) do
+    `git config user.name '#{@previous_git_user_name}'`
+    `git config user.email '#{@previous_git_user_email}'`
     $stderr = original_stderr
     $stdout = original_stdout
   end
