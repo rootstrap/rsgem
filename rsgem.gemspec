@@ -20,9 +20,10 @@ Gem::Specification.new do |spec|
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
   spec.files = Dir['LICENSE.txt', 'README.md', 'bin/**/*', 'lib/**/*']
   spec.bindir        = 'exe'
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.executables   = ['rsgem']
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'dry-cli', '~> 0.6.0'
   spec.add_development_dependency 'pry', '~> 0.13.0'
   spec.add_development_dependency 'rake', '~> 13.0.1'
   spec.add_development_dependency 'reek', '~> 5.6.0'
