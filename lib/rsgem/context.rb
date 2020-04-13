@@ -2,14 +2,31 @@
 
 module RSGem
   class Context
-    attr_reader :gem_name
+    attr_reader :options
 
-    def initialize(gem_name:)
-      @gem_name = gem_name
+    DEFAULT_CI_PROVIDER = RSGem::CIProviders::GithubActions
+
+    def initialize(options:)
+      @options = options
+
+      raise MissingGemNameError unless options[:gem_name]
+    end
+
+    def ci_provider
+      @ci_provider ||= case options[:ci_provider]
+                       when 'travis'
+                         RSGem::CIProviders::Travis
+                       else
+                         DEFAULT_CI_PROVIDER
+                       end
     end
 
     def gemfile_path
       "#{folder_path}/Gemfile"
+    end
+
+    def gem_name
+      @gem_name ||= options[:gem_name]
     end
 
     def gemspec_path

@@ -2,24 +2,29 @@
 
 module RSGem
   class Gem
-    attr_reader :gem_name
+    attr_reader :options
 
-    def initialize(gem_name:)
-      @gem_name = gem_name
+    def initialize(options)
+      @options = options
     end
 
     def create
-      `bundle gem #{gem_name}`
+      `bundle gem #{context.gem_name}`
 
       add_code_analysis
       add_dependencies
       clean_gemfile
       ignore_gemfile_lock
+      add_ci_provider
       clean_gemspec
       run_rubocop
     end
 
     private
+
+    def add_ci_provider
+      context.ci_provider.install(context)
+    end
 
     def add_code_analysis
       Tasks::AddCodeAnalysis.new(context: context).add
@@ -46,7 +51,7 @@ module RSGem
     end
 
     def context
-      @context ||= Context.new(gem_name: gem_name)
+      @context ||= Context.new(options: options)
     end
 
     def ignore_gemfile_lock
