@@ -84,6 +84,10 @@ RSpec.describe RSGem::Gem do
         )
       end
 
+      it 'updates the gemspec files config' do
+        expect(gemspec).to include "spec.files = Dir['LICENSE.txt', 'README.md', 'lib/**/*']"
+      end
+
       it 'adds github actions configuration file' do
         expect(github_actions).to eq expected_github_actions
       end
