@@ -18,8 +18,8 @@ RSpec.describe RSGem::Gem do
       let(:gemfile) { File.read("./#{gem_name}/Gemfile") }
       let(:gitignore) { File.read("./#{gem_name}/.gitignore") }
       let(:rakefile) { File.read("./#{gem_name}/Rakefile") }
-      let(:github_actions) { File.read("./#{gem_name}/.github/workflows/ci.yml") }
-      let(:expected_github_actions) { File.read('./lib/rsgem/support/github_actions.yml') }
+      let(:travis) { File.read("./#{gem_name}/.travis.yml") }
+      let(:expected_travis) { File.read('./lib/rsgem/support/travis.yml') }
 
       it 'creates a new folder' do
         expect(list_files).to include gem_name
@@ -88,8 +88,8 @@ RSpec.describe RSGem::Gem do
         expect(gemspec).to include "spec.files = Dir['LICENSE.txt', 'README.md', 'lib/**/*']"
       end
 
-      it 'adds github actions configuration file' do
-        expect(github_actions).to eq expected_github_actions
+      it 'adds travis configuration file' do
+        expect(travis).to eq expected_travis
       end
 
       context 'running inside the new gem' do
