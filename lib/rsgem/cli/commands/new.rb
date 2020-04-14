@@ -14,11 +14,12 @@ module RSGem
         argument :ci_provider, type: :string, required: false,
                                desc: 'CI provider to use. '\
                                      "Available options are: #{ci_provider_options}. "\
-                                     "Default option is 'github_actions'"
+                                     "Default option is 'travis'"
 
         example [
-          'foo        # Creates a new gem called foo',
-          'bar travis # Creates a new gem called bar, with travis as the CI provider'
+          'foo                # Creates a new gem called foo',
+          'bar github_actions # Creates a new gem called bar, with GitHub Actions as the '\
+          'CI provider'
         ]
 
         def call(**options)
