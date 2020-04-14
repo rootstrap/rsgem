@@ -4,8 +4,6 @@ module RSGem
   class Context
     attr_reader :options
 
-    DEFAULT_CI_PROVIDER = RSGem::CIProviders::GithubActions
-
     def initialize(options:)
       @options = options
 
@@ -13,12 +11,13 @@ module RSGem
     end
 
     def ci_provider
-      @ci_provider ||= case options[:ci_provider]
-                       when 'travis'
-                         RSGem::CIProviders::Travis
-                       else
-                         DEFAULT_CI_PROVIDER
-                       end
+      @ci_provider ||= begin
+        return RSGem::Constants::DEFAULT_CI_PROVIDER unless (name = options[:ci_provider])
+
+        RSGem::Constants::CI_PROVIDERS.detect do |provider|
+          provider.name == name
+        end
+      end
     end
 
     def gemfile_path
