@@ -33,7 +33,7 @@ RSGem will solve the following tasks for you:
 1. Add a rake task to run Rubocop and Reek by calling `rake code_analysis`.
 1. [Clean the Gemfile](https://github.com/rootstrap/tech-guides/blob/master/open-source/developing_gems.md#gemfilegemfilelockgemspec).
 1. [Git ignore the Gemfile.lock](https://github.com/rootstrap/tech-guides/blob/master/open-source/developing_gems.md#gemfilegemfilelockgemspec)
-1. Add a CI provider configuration. GitHub Actions and Travis are available providers. GitHub Actions is the default.
+1. Add a CI provider configuration. GitHub Actions and Travis are available providers. Travis is the default.
 1. Set the bundled files to be a short list of files. By default the gem will bundle:
     - LICENSE.txt
     - README.md
@@ -48,9 +48,9 @@ rsgem new foo
 Creates a new gem called foo.
 
 ```
-rsgem new bar travis
+rsgem new bar github_actions
 ```
-Creates a new gem called bar that uses Travis as the CI provider.
+Creates a new gem called bar that uses Github Actions as the CI provider.
 
 #### Help
 
