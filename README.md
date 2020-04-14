@@ -8,8 +8,6 @@
 
 ## Installation
 
-Install it yourself as:
-
     $ gem install rsgem
 
 We highly suggest to not include `rsgem` in your Gemfile.
@@ -17,7 +15,54 @@ We highly suggest to not include `rsgem` in your Gemfile.
 
 ## Usage
 
-_TODO_
+```
+rsgem new NAME [CI_PROVIDER]
+```
+
+RSGem will solve the following tasks for you:
+
+1. Create a folder for your gem leveraging bundler's defaults. (You need bundler in your system)
+1. Add the following dependencies:
+    - [Rake](https://github.com/ruby/rake)
+    - [Reek](https://github.com/troessner/reek)
+    - [RSpec](https://github.com/rspec/rspec)
+    - [Rubocop](https://github.com/rubocop-hq/rubocop)
+    - [Simplecov](https://github.com/colszowka/simplecov)
+        - We use Simplecov at 0.17.1 because that's the latest compatible version with CodeClimate.
+1. Add configuration files for Reek and Rubocop with default Rootstrap's configuration.
+1. Add a rake task to run Rubocop and Reek by calling `rake code_analysis`.
+1. [Clean the Gemfile](https://github.com/rootstrap/tech-guides/blob/master/open-source/developing_gems.md#gemfilegemfilelockgemspec).
+1. [Git ignore the Gemfile.lock](https://github.com/rootstrap/tech-guides/blob/master/open-source/developing_gems.md#gemfilegemfilelockgemspec)
+1. Add a CI provider configuration. GitHub Actions and Travis are available providers. Travis is the default.
+1. Set the bundled files to be a short list of files. By default the gem will bundle:
+    - LICENSE.txt
+    - README.md
+    - lib/**/* (everything inside lib)
+1. Apply Rubocop style fixes
+
+#### Examples
+
+```
+rsgem new foo
+```
+Creates a new gem called foo.
+
+```
+rsgem new bar github_actions
+```
+Creates a new gem called bar that uses Github Actions as the CI provider.
+
+#### Help
+
+```
+rsgem -h
+```
+Displays global help.
+
+```
+rsgem new -h
+```
+Displays help for the `new` command.
 
 ## Development
 
