@@ -18,6 +18,7 @@ module RSGem
       add_ci_provider
       clean_gemspec
       set_bundled_files
+      bundle_dependencies
       run_rubocop
     end
 
@@ -61,6 +62,10 @@ module RSGem
 
     def run_rubocop
       Tasks::RunRubocop.new(context: context).run
+    end
+
+    def bundle_dependencies
+      Tasks::BundleDependencies.new(context: context).run
     end
 
     def set_bundled_files

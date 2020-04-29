@@ -34,6 +34,7 @@ RSpec.describe 'CLI' do
       expect(subject).to include('Gemfile cleaned')
       expect(subject).to include('Gemfile.lock added to .gitignore')
       expect(subject).to include('Travis CI configuration added')
+      expect(subject).to include('Running bundle install:')
       expect(subject).to include('Rubocop:')
       expect(File.exist?(gem_name)).to eq true
     end
