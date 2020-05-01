@@ -19,7 +19,7 @@ module RSGem
           'foo                     # Creates a new gem called foo',
           'bar --ci=github_actions # Creates a new gem called bar, with GitHub Actions as the '\
           'CI provider',
-          'foo_bar --ext           # Creates a new gem called foo_bar passing the --ext flag to '\
+          'foo_bar --bundler=--ext # Creates a new gem called foo_bar passing the --ext flag to '\
           'bundler'
         ]
 
