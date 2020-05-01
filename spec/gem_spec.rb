@@ -128,5 +128,19 @@ RSpec.describe RSGem::Gem do
         expect { described_class.new({}).create }.to raise_error(RSGem::MissingGemNameError)
       end
     end
+
+    context 'using bundler options' do
+      before(:all) do
+        described_class.new(gem_name: gem_name, bundler_options: '--ext --exe').create
+      end
+      after(:all) do
+        `rm -rf ./#{gem_name}`
+      end
+
+      it 'adds the exe and ext folders' do
+        expect(File.exist?("./#{gem_name}/exe")).to eq true
+        expect(File.exist?("./#{gem_name}/ext")).to eq true
+      end
+    end
   end
 end

@@ -9,8 +9,7 @@ module RSGem
     end
 
     def create
-      `bundle gem #{context.gem_name}`
-
+      create_gem
       add_code_analysis
       add_dependencies
       clean_gemfile
@@ -54,6 +53,10 @@ module RSGem
 
     def context
       @context ||= Context.new(options: options)
+    end
+
+    def create_gem
+      Tasks::CreateGem.new(context: context).create
     end
 
     def ignore_gemfile_lock
