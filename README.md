@@ -1,5 +1,6 @@
 # `rsgem` - Rootstrap's gem generator
 
+[![Gem Version](https://badge.fury.io/rb/rsgem.svg)](https://badge.fury.io/rb/rsgem)
 [![ci](https://github.com/rootstrap/rsgem/workflows/ci/badge.svg)](https://github.com/rootstrap/rsgem/actions?query=workflow%3Aci)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d956ef2db5e9d02db891/maintainability)](https://codeclimate.com/github/rootstrap/rsgem/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d956ef2db5e9d02db891/test_coverage)](https://codeclimate.com/github/rootstrap/rsgem/test_coverage)
