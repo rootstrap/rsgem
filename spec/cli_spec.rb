@@ -19,13 +19,12 @@ RSpec.describe 'CLI' do
     end
   end
 
-  describe 'rsgem new NAME [CI_PROVIDER]' do
+  describe 'rsgem new NAME --ci=VALUE' do
     after { `rm -rf #{gem_name}` }
 
     let(:gem_name) { 'testing_cli' }
-    let(:ci_provider) { nil }
 
-    subject { `./exe/rsgem new #{gem_name} #{ci_provider}` }
+    subject { `./exe/rsgem new #{gem_name}` }
 
     it 'creates a new gem' do
       expect(subject).to include('Reek installed')
@@ -40,7 +39,7 @@ RSpec.describe 'CLI' do
     end
 
     context 'with travis as the CI provider' do
-      let(:ci_provider) { 'travis' }
+      subject { `./exe/rsgem new #{gem_name} --ci=travis` }
 
       it 'creates a new gem with travis configuration' do
         expect(subject).to include('Travis CI configuration added')
@@ -49,12 +48,42 @@ RSpec.describe 'CLI' do
     end
 
     context 'with github actions as the CI provider' do
-      let(:ci_provider) { 'github_actions' }
+      subject { `./exe/rsgem new #{gem_name} --ci=github_actions` }
 
       it 'creates a new gem with github actions configuration' do
         expect(subject).to include('Github Actions CI configuration added')
         expect(File.exist?("#{gem_name}/.github/workflows/ci.yml")).to eq true
       end
+    end
+  end
+
+  describe 'rsgem new NAME --bundler=VALUE' do
+    after { `rm -rf #{gem_name}` }
+
+    let(:gem_name) { 'testing_cli' }
+    let(:options) { '--exe' }
+
+    subject { `./exe/rsgem new #{gem_name} --bundler=#{options}` }
+
+    it { is_expected.to include('Gem created with options: --exe') }
+
+    context 'with two options' do
+      let(:options) { "'--exe --ext'" }
+
+      it { is_expected.to include('Gem created with options: --exe --ext') }
+    end
+  end
+
+  describe 'rsgem new NAME --bundler=VALUE --ci=VALUE' do
+    after { `rm -rf #{gem_name}` }
+
+    let(:gem_name) { 'testing_cli' }
+
+    subject { `./exe/rsgem new #{gem_name} --bundler=--ext --ci=github_actions` }
+
+    it 'works with both options' do
+      expect(subject).to include('Gem created with options: --ext')
+      expect(subject).to include('Github Actions CI configuration added')
     end
   end
 end

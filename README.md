@@ -11,12 +11,12 @@
     $ gem install rsgem
 
 We highly suggest to not include `rsgem` in your Gemfile.
-`rsgem` is not a library, and should not affect the dependency tree of your application.
+`rsgem` is not a library, and should not affect the dependency tree of your project.
 
 ## Usage
 
 ```
-rsgem new NAME [CI_PROVIDER]
+rsgem new NAME
 ```
 
 RSGem will solve the following tasks for you:
@@ -48,9 +48,19 @@ rsgem new foo
 Creates a new gem called foo.
 
 ```
-rsgem new bar github_actions
+rsgem new bar --ci=github_actions
 ```
 Creates a new gem called bar that uses Github Actions as the CI provider.
+
+```
+rsgem new foo_bar --bundler=--ext
+```
+Creates a new gem called foo_bar and passes the [--ext flag to bundler](https://bundler.io/v2.0/man/bundle-gem.1.html#OPTIONS).
+
+```
+rsgem new bar_foo --bundler='--several --flags'
+```
+Creates a new gem passing several flags to bundler.
 
 #### Help
 

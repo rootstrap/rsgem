@@ -10,6 +10,10 @@ module RSGem
       raise MissingGemNameError unless options[:gem_name]
     end
 
+    def bundler_options
+      @bundler_options ||= options[:bundler_options]
+    end
+
     def ci_provider
       @ci_provider ||= begin
         return RSGem::Constants::DEFAULT_CI_PROVIDER unless (name = options[:ci_provider])
