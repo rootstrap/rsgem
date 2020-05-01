@@ -1,8 +1,8 @@
 # `rsgem` - Rootstrap's gem generator
 
-![build](https://github.com/rootstrap/rsgem/workflows/build/badge.svg)
-[![Maintainability](https://api.codeclimate.com/v1/badges/c22da1693543a6eac7e9/maintainability)](https://codeclimate.com/github/rootstrap/rsgem/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/c22da1693543a6eac7e9/test_coverage)](https://codeclimate.com/github/rootstrap/rsgem/test_coverage)
+[![ci](https://github.com/rootstrap/rsgem/workflows/ci/badge.svg)](https://github.com/rootstrap/rsgem/actions?query=workflow%3Aci)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d956ef2db5e9d02db891/maintainability)](https://codeclimate.com/github/rootstrap/rsgem/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d956ef2db5e9d02db891/test_coverage)](https://codeclimate.com/github/rootstrap/rsgem/test_coverage)
 
 `rsgem` is a tool to help you start developing gems with the defaults we use at Rootstrap.
 
