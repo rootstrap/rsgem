@@ -13,6 +13,7 @@ module RSGem
       end
 
       def install(context)
+        remove_travis(context)
         destination = "#{context.folder_path}/#{config_file_destination}"
 
         File.delete(destination) if File.exist?(destination)
@@ -28,6 +29,16 @@ module RSGem
 
       def config_file_source_content
         File.read(config_file_source)
+      end
+
+      #
+      # `bundle gem` adds travis by default
+      #
+      def remove_travis(context)
+        travis_path = "#{context.folder_path}/.travis.yml"
+        return unless File.exist?(travis_path)
+
+        File.delete(travis_path)
       end
     end
   end
