@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-  spec.files = Dir['LICENSE.txt', 'README.md', 'bin/**/*', 'lib/**/*']
+  spec.files = Dir['CHANGELOG.md', 'LICENSE.txt', 'README.md', 'bin/**/*', 'lib/**/*']
   spec.bindir        = 'exe'
   spec.executables   = ['rsgem']
   spec.require_paths = ['lib']
