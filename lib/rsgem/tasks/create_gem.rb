@@ -14,7 +14,7 @@ module RSGem
           puts message
         else
           puts "Failed to run `bundle gem'. "\
-               "Check bundler is installed in your system, or install it with `gem instal bundler'"
+               "Check bundler is installed in your system, or install it with `gem install bundler`"
           exit false
         end
       end
