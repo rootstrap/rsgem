@@ -10,7 +10,7 @@ module RSGem
       end
 
       def create
-        `#{shell_command}`
+        system shell_command
         puts message
       end
 
