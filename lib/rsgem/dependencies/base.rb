@@ -6,13 +6,14 @@ module RSGem
       attr_reader :config_file_destination, :config_file_source, :mode, :name, :post_install_task,
                   :version
 
-      def initialize(args)
-        @config_file_source = args[:config_file_source]
-        @config_file_destination = args[:config_file_destination]
-        @mode = args[:mode] || 'development' # Either `development' or `runtime'
-        @name = args[:name]
-        @post_install_task = args[:post_install_task]
-        @version = args[:version] ? "'#{args[:version]}'" : nil
+      def initialize(name:, **extras)
+        @config_file_source = extras[:config_file_source]
+        @config_file_destination = extras[:config_file_destination]
+        @mode = extras[:mode] || 'development' # Either `development' or `runtime'
+        @name = name
+        @post_install_task = extras[:post_install_task]
+        version = extras[:version]
+        @version = version ? "'#{version}'" : nil
       end
 
       def install(context)
