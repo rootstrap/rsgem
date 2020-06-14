@@ -3,15 +3,16 @@
 module RSGem
   module Dependencies
     class Base
-      attr_reader :config_file_destination, :config_file_source, :mode, :name, :version
+      attr_reader :config_file_destination, :config_file_source, :mode, :name, :post_install_task,
+                  :version
 
-      def initialize(config_file_source: nil, config_file_destination: nil, mode: :development,
-                     name:, version: nil)
-        @config_file_source = config_file_source
-        @config_file_destination = config_file_destination
-        @mode = mode # Either `development' or `runtime'
-        @name = name
-        @version = version ? "'#{version}'" : nil
+      def initialize(args)
+        @config_file_source = args[:config_file_source]
+        @config_file_destination = args[:config_file_destination]
+        @mode = args[:mode] || 'development' # Either `development' or `runtime'
+        @name = args[:name]
+        @post_install_task = args[:post_install_task]
+        @version = args[:version] ? "'#{args[:version]}'" : nil
       end
 
       def install(context)
@@ -20,6 +21,8 @@ module RSGem
             file.puts config_file_source_content
           end
         end
+
+        post_install_task&.new(context: context)&.perform
 
         puts "\t#{name.capitalize} installed"
       end

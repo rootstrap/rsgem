@@ -47,5 +47,9 @@ module RSGem
     def rakefile_path
       "#{folder_path}/Rakefile"
     end
+
+    def spec_helper_path
+      "#{folder_path}/spec/spec_helper.rb"
+    end
   end
 end
