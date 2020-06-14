@@ -10,8 +10,13 @@ module RSGem
       end
 
       def create
-        system shell_command
-        puts message
+        if system(shell_command)
+          puts message
+        else
+          puts "Failed to run `bundle gem'. "\
+               "Check bundler is installed in your system, or install it with `gem install bundler'"
+          exit false
+        end
       end
 
       private

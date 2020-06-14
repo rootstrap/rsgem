@@ -146,5 +146,14 @@ RSpec.describe RSGem::Gem do
         expect(File.exist?("./#{gem_name}/ext")).to eq true
       end
     end
+
+    context 'with failing bundler' do
+      after { `rm -rf ./#{gem_name}` }
+
+      it 'exits the process' do
+        expect_any_instance_of(Object).to receive(:system).and_return(false)
+        expect { described_class.new(gem_name: gem_name).create }.to raise_error(SystemExit)
+      end
+    end
   end
 end
