@@ -2,15 +2,8 @@
 
 module RSGem
   module Tasks
-    class AddDependency
-      attr_reader :context, :dependency
-
-      def initialize(context:, dependency:)
-        @context = context
-        @dependency = dependency
-      end
-
-      def add
+    class AddDependency < Base
+      def perform
         return if already_installed?
 
         add_dependency
@@ -32,6 +25,10 @@ module RSGem
       def code
         text = ["  spec.add_#{dependency.mode}_dependency '#{dependency.name}'", dependency.version]
         text.compact.join(', ')
+      end
+
+      def dependency
+        extras[:dependency]
       end
 
       def gemspec_file

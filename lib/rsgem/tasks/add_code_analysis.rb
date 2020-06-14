@@ -2,14 +2,8 @@
 
 module RSGem
   module Tasks
-    class AddCodeAnalysis
-      attr_reader :context
-
-      def initialize(context:)
-        @context = context
-      end
-
-      def add
+    class AddCodeAnalysis < Base
+      def perform
         File.open(context.rakefile_path, 'w') do |file|
           file.puts rakefile
         end

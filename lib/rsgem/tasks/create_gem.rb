@@ -2,14 +2,8 @@
 
 module RSGem
   module Tasks
-    class CreateGem
-      attr_reader :context
-
-      def initialize(context:)
-        @context = context
-      end
-
-      def create
+    class CreateGem < Base
+      def perform
         if system(shell_command)
           puts message
         else

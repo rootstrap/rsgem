@@ -2,14 +2,8 @@
 
 module RSGem
   module Tasks
-    class RunRubocop
-      attr_reader :context, :output
-
-      def initialize(context:)
-        @context = context
-      end
-
-      def run
+    class RunRubocop < Base
+      def perform
         puts "\tRubocop:"
         @output = `cd #{context.folder_path} && bundle exec rubocop -a`
         puts "\t\t#{last_line}"
