@@ -7,14 +7,8 @@ module RSGem
     #
     # https://github.com/rootstrap/tech-guides/blob/master/open-source/developing_gems.md#gemfilegemfilelockgemspec
     #
-    class IgnoreGemfileLock
-      attr_reader :context
-
-      def initialize(context:)
-        @context = context
-      end
-
-      def ignore
+    class IgnoreGemfileLock < Base
+      def perform
         gitignore << "\nGemfile.lock\n"
         write_to_gitignore
         puts "\tGemfile.lock added to .gitignore"

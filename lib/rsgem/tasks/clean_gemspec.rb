@@ -2,16 +2,10 @@
 
 module RSGem
   module Tasks
-    class CleanGemspec
-      attr_reader :context
-
+    class CleanGemspec < Base
       KEYS_TO_EMPTY = %w[summary description homepage].freeze
 
-      def initialize(context:)
-        @context = context
-      end
-
-      def clean
+      def perform
         comment_metadata!
         empty_keys!
         write

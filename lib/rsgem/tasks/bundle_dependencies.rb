@@ -2,14 +2,8 @@
 
 module RSGem
   module Tasks
-    class BundleDependencies
-      attr_reader :context, :output
-
-      def initialize(context:)
-        @context = context
-      end
-
-      def run
+    class BundleDependencies < Base
+      def perform
         puts "\tRunning bundle install:"
         @output = `cd #{context.folder_path} && bundle`
         puts "\t\t#{last_line}"

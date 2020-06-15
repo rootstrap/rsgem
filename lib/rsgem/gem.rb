@@ -28,7 +28,7 @@ module RSGem
     end
 
     def add_code_analysis
-      Tasks::AddCodeAnalysis.new(context: context).add
+      Tasks::AddCodeAnalysis.new(context: context).perform
     end
 
     def add_dependencies
@@ -39,16 +39,16 @@ module RSGem
         Dependencies::Rubocop,
         Dependencies::Simplecov
       ].each do |dependency|
-        Tasks::AddDependency.new(context: context, dependency: dependency).add
+        Tasks::AddDependency.new(context: context, dependency: dependency).perform
       end
     end
 
     def clean_gemfile
-      Tasks::CleanGemfile.new(context: context).clean
+      Tasks::CleanGemfile.new(context: context).perform
     end
 
     def clean_gemspec
-      Tasks::CleanGemspec.new(context: context).clean
+      Tasks::CleanGemspec.new(context: context).perform
     end
 
     def context
@@ -56,23 +56,23 @@ module RSGem
     end
 
     def create_gem
-      Tasks::CreateGem.new(context: context).create
+      Tasks::CreateGem.new(context: context).perform
     end
 
     def ignore_gemfile_lock
-      Tasks::IgnoreGemfileLock.new(context: context).ignore
+      Tasks::IgnoreGemfileLock.new(context: context).perform
     end
 
     def run_rubocop
-      Tasks::RunRubocop.new(context: context).run
+      Tasks::RunRubocop.new(context: context).perform
     end
 
     def bundle_dependencies
-      Tasks::BundleDependencies.new(context: context).run
+      Tasks::BundleDependencies.new(context: context).perform
     end
 
     def set_bundled_files
-      Tasks::SetBundledFiles.new(context: context).set
+      Tasks::SetBundledFiles.new(context: context).perform
     end
   end
 end

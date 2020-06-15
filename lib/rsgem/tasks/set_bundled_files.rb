@@ -11,14 +11,8 @@ module RSGem
     #   - README.md
     #   - lib/**/* (everything inside lib)
     #
-    class SetBundledFiles
-      attr_reader :context
-
-      def initialize(context:)
-        @context = context
-      end
-
-      def set
+    class SetBundledFiles < Base
+      def perform
         # Explaining the regular expression:
         # [spec.files][one or more white spaces][=][one or more white spaces][anything until "do"]
         #   [new line][anything until new line]
