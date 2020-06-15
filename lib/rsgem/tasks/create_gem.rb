@@ -28,7 +28,7 @@ module RSGem
 
       def shell_command
         [
-          "bundle gem #{context.gem_name}",
+          "bundle gem #{context.gem_name} --test=rspec --coc --mit",
           bundler_options
         ].compact.join(' ')
       end
