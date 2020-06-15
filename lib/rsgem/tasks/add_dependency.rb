@@ -28,7 +28,7 @@ module RSGem
       end
 
       def dependency
-        extras[:dependency]
+        args[:dependency]
       end
 
       def gemspec_file
