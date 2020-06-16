@@ -1,5 +1,9 @@
 # master
 
+* Add task to replace system user name in LICENSE.txt with Rootstrap name
+
+    *Juan Francisco Ferrari*
+
 # 0.2.0
 
 * Add default configuration for simplecov in spec_helper.rb
