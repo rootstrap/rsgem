@@ -21,6 +21,7 @@ RSpec.describe RSGem::Gem do
       let(:travis) { File.read("./#{gem_name}/.travis.yml") }
       let(:expected_travis) { File.read('./lib/rsgem/support/travis.yml') }
       let(:spec_helper) { File.read("./#{gem_name}/spec/spec_helper.rb") }
+      let(:license) { File.read("./#{gem_name}/LICENSE.txt") }
 
       it 'creates a new folder' do
         expect(list_files).to include gem_name
@@ -99,6 +100,10 @@ RSpec.describe RSGem::Gem do
 
       it 'adds simplecov configuration in spec helper file' do
         expect(spec_helper).to include 'SimpleCov.start do'
+      end
+
+      it 'adds license file with Rootstrap name' do
+        expect(license).to include 'Copyright (c) 2020 Rootstrap'
       end
 
       context 'running inside the new gem' do
