@@ -4,7 +4,10 @@ module RSGem
   module Tasks
     class SetLicenseFile < Base
       def perform
-        license[2] = 'Copyright (c) 2020 Rootstrap'
+        license.gsub!(
+          /.*Copyright.*/,
+          'Copyright (c) 2020 Rootstrap'
+        )
         write
 
         puts "\tLICENSE file updated"
@@ -13,7 +16,7 @@ module RSGem
       private
 
       def license
-        @license ||= File.readlines(context.license_path)
+        @license ||= File.read(context.license_path)
       end
 
       def write
