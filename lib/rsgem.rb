@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'date'
 require 'rsgem/version'
 require 'rsgem/gem'
 require 'rsgem/errors/missing_gem_name_error'

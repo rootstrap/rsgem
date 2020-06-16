@@ -103,7 +103,7 @@ RSpec.describe RSGem::Gem do
       end
 
       it 'adds license file with Rootstrap name' do
-        expect(license).to include 'Copyright (c) 2020 Rootstrap'
+        expect(license).to include "Copyright (c) #{Date.today.year} Rootstrap"
       end
 
       context 'running inside the new gem' do

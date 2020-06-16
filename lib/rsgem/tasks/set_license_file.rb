@@ -6,7 +6,7 @@ module RSGem
       def perform
         license.gsub!(
           /.*Copyright.*/,
-          'Copyright (c) 2020 Rootstrap'
+          "Copyright (c) #{Date.today.year} Rootstrap"
         )
         write
 
