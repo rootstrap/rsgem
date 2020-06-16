@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'date'
 require 'rsgem/version'
 require 'rsgem/gem'
 require 'rsgem/errors/missing_gem_name_error'
@@ -16,6 +17,7 @@ require 'rsgem/tasks/clean_gemspec'
 require 'rsgem/tasks/bundle_dependencies'
 require 'rsgem/tasks/run_rubocop'
 require 'rsgem/tasks/set_bundled_files'
+require 'rsgem/tasks/set_license_file'
 require 'rsgem/tasks/simple_cov_post_install'
 require 'rsgem/dependencies/base'
 require 'rsgem/dependencies/rake'

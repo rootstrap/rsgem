@@ -17,6 +17,7 @@ module RSGem
       add_ci_provider
       clean_gemspec
       set_bundled_files
+      set_license_file
       bundle_dependencies
       run_rubocop
     end
@@ -73,6 +74,10 @@ module RSGem
 
     def set_bundled_files
       Tasks::SetBundledFiles.new(context: context).perform
+    end
+
+    def set_license_file
+      Tasks::SetLicenseFile.new(context: context).perform
     end
   end
 end

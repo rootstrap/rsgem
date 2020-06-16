@@ -36,6 +36,10 @@ module RSGem
       "#{folder_path}/#{gem_name}.gemspec"
     end
 
+    def license_path
+      "#{folder_path}/LICENSE.txt"
+    end
+
     def folder_path
       `pwd`.sub("\n", '/') + gem_name
     end
