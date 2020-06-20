@@ -1,5 +1,7 @@
 # master
 
+# 0.3.0
+
 * Add task to replace system user name in LICENSE.txt with Rootstrap name
 
     *Juan Francisco Ferrari*
