@@ -24,10 +24,10 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'dry-cli', '~> 0.6.0'
-  spec.add_development_dependency 'pry', '~> 0.13.0'
+  spec.add_development_dependency 'pry', '~> 0.13.1'
   spec.add_development_dependency 'rake', '~> 13.0.1'
-  spec.add_development_dependency 'reek', '~> 5.6.0'
+  spec.add_development_dependency 'reek', '~> 6.0', '>= 6.0.1'
   spec.add_development_dependency 'rspec', '~> 3.9.0'
-  spec.add_development_dependency 'rubocop', '~> 0.82.0'
-  spec.add_development_dependency 'simplecov', '~> 0.17.1'
+  spec.add_development_dependency 'rubocop', '~> 0.89.0'
+  spec.add_development_dependency 'simplecov', '~> 0.18.5'
 end
