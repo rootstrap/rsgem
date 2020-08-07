@@ -55,5 +55,17 @@ module RSGem
     def spec_helper_path
       "#{folder_path}/spec/spec_helper.rb"
     end
+
+    def test_spec_path
+      "#{folder_path}/spec/#{gem_name}_spec.rb"
+    end
+
+    def gem_path
+      "#{folder_path}/lib/#{gem_name}.rb"
+    end
+
+    def version_file_path
+      "#{folder_path}/lib/#{gem_name}/version.rb"
+    end
   end
 end

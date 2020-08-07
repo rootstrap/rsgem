@@ -19,6 +19,7 @@ module RSGem
       set_bundled_files
       set_license_file
       bundle_dependencies
+      add_frozen_string_comment
       run_rubocop
     end
 
@@ -62,6 +63,10 @@ module RSGem
 
     def ignore_gemfile_lock
       Tasks::IgnoreGemfileLock.new(context: context).perform
+    end
+
+    def add_frozen_string_comment
+      Tasks::AddFrozenStringComment.new(context: context).perform
     end
 
     def run_rubocop
