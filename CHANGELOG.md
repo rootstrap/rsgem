@@ -1,5 +1,7 @@
 # master
 
+# 0.4.0
+
 * Cache bundler directory for 24hs in Github Actions
 
     *Martín Rubí*
