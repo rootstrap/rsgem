@@ -56,7 +56,7 @@ RSpec.describe 'CLI' do
       end
     end
 
-    context 'without github config properly set' do
+    context 'without git config properly set' do
       let!(:previous_git_user_name) { `git config user.name`.strip }
       let!(:previous_git_user_email) { `git config user.email`.strip }
 
