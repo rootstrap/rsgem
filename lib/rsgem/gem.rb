@@ -10,6 +10,7 @@ module RSGem
 
     def create
       create_gem
+      ensure_author
       add_code_analysis
       add_dependencies
       clean_gemfile
@@ -58,6 +59,10 @@ module RSGem
 
     def create_gem
       Tasks::CreateGem.new(context: context).perform
+    end
+
+    def ensure_author
+      Tasks::EnsureAuthor.new(context: context).perform
     end
 
     def ignore_gemfile_lock

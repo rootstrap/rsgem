@@ -1,5 +1,9 @@
 # master
 
+* Add placeholder `email` and `name` when no git user is set, issuing a warning while doing so.
+    
+    *Jake Yesbeck*
+
 # 0.4.0
 
 * Cache bundler directory for 24hs in Github Actions
