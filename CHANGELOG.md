@@ -1,7 +1,8 @@
 # master
 
-* Add placeholder `email` and `name` when no git config is set, issuing
-    a warning while doing so.
+* Add placeholder `email` and `name` when no git user is set, issuing a warning while doing so.
+    
+    *Jake Yesbeck*
 
 # 0.4.0
 
