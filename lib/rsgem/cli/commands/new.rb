@@ -24,9 +24,6 @@ module RSGem
         ]
 
         def call(**options)
-          puts Colors.colorize("Creating a new gem #{options[:gem_name]}", :green)
-          puts Colors.colorize("\tpassed in ci option = #{options[:ci]}", :green)
-          puts Colors.colorize("\tpassed in bundler option = #{options[:ci]}", :green) unless options[:bundler].nil?
           RSGem::Gem.new(gem_name: options[:gem_name],
                          ci_provider: options[:ci],
                          bundler_options: options[:bundler]).create

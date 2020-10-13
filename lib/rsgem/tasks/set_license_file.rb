@@ -10,7 +10,7 @@ module RSGem
         )
         write
 
-        puts "\tLICENSE file updated"
+        puts Colors.colorize("\tLICENSE file updated", :green)
       end
 
       private

@@ -22,7 +22,7 @@ module RSGem
           file.puts config_file_source_content
         end
 
-        puts "\t#{display_name} CI configuration added"
+        puts Colors.colorize("\t#{display_name} CI configuration added", :green)
       end
 
       private
