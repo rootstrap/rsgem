@@ -1,5 +1,8 @@
 # master
 
+* Add placeholder `email` and `name` when no git config is set, issuing
+    a warning while doing so.
+
 # 0.4.0
 
 * Cache bundler directory for 24hs in Github Actions
