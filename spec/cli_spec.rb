@@ -56,25 +56,42 @@ RSpec.describe 'CLI' do
       end
     end
 
-    context 'without git config properly set' do
-      let!(:previous_git_user_name) { `git config user.name`.strip }
-      let!(:previous_git_user_email) { `git config user.email`.strip }
-
-      before do
-        `git config --unset user.name`
-        `git config --unset user.email`
-      end
-
+    context 'github config' do
       subject { `./exe/rsgem new #{gem_name} --ci=github_actions` }
 
-      it 'creates a new gem with placeholder information' do
-        expect(subject).to match(/Warning: No git username set, setting change_me for now/)
-        expect(subject).to match(/Warning: No git email set, setting change_me@notanemail.com for now/)
+      context 'is set' do
+        it 'does not issue a warning or modify the gemspec' do
+          expect(subject).to_not match(
+            /Warning: No git username set, setting change_me for now/
+          )
+          expect(subject).to_not match(
+            /Warning: No git email set, setting change_me@notanemail.com for now/
+          )
+        end
       end
 
-      after do
-        `git config user.name #{previous_git_user_name}`
-        `git config user.email #{previous_git_user_email}`
+      context 'not set' do
+        let!(:previous_git_user_name) { `git config user.name`.strip }
+        let!(:previous_git_user_email) { `git config user.email`.strip }
+
+        before do
+          `git config --unset user.name`
+          `git config --unset user.email`
+        end
+
+        it 'creates a new gem with placeholder information' do
+          expect(subject).to match(
+            /Warning: No git username set, setting change_me for now/
+          )
+          expect(subject).to match(
+            /Warning: No git email set, setting change_me@notanemail.com for now/
+          )
+        end
+
+        after do
+          `git config user.name #{previous_git_user_name}`
+          `git config user.email #{previous_git_user_email}`
+        end
       end
     end
   end
