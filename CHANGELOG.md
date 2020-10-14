@@ -1,7 +1,8 @@
 # master
 
 * Add placeholder `email` and `name` when no git user is set, issuing a warning while doing so.
-    
+* Add colors to output during gem creation.
+
     *Jake Yesbeck*
 
 # 0.4.0

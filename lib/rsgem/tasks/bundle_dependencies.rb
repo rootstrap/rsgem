@@ -4,9 +4,9 @@ module RSGem
   module Tasks
     class BundleDependencies < Base
       def perform
-        puts "\tRunning bundle install:"
+        puts Colors.colorize("\tRunning bundle install:", :blue)
         @output = `cd #{context.folder_path} && bundle`
-        puts "\t\t#{last_line}"
+        puts Colors.colorize("\t\t#{last_line}", :blue)
       end
 
       private

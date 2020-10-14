@@ -5,10 +5,12 @@ module RSGem
     class CreateGem < Base
       def perform
         if system(shell_command)
-          puts message
+          puts Colors.colorize(message, :green)
         else
-          puts "Failed to run `bundle gem'. "\
-               "Check bundler is installed in your system, or install it with `gem install bundler'"
+          puts Colors.colorize("Failed to run `bundle gem'. "\
+                               "Check bundler is installed in your system,
+                               or install it with `gem install bundler'",
+                               :red)
           exit false
         end
       end

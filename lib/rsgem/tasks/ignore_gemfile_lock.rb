@@ -11,7 +11,7 @@ module RSGem
       def perform
         gitignore << "\nGemfile.lock\n"
         write_to_gitignore
-        puts "\tGemfile.lock added to .gitignore"
+        puts Colors.colorize("\tGemfile.lock added to .gitignore", :green)
       end
 
       private

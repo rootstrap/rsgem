@@ -25,7 +25,7 @@ module RSGem
 
         post_install_task&.new(context: context)&.perform
 
-        puts "\t#{name.capitalize} installed"
+        puts Colors.colorize("\t#{name.capitalize} installed", :green)
       end
 
       private

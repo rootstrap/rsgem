@@ -23,7 +23,7 @@ module RSGem
         )
         write
 
-        puts "\tGemspec files config updated"
+        puts Colors.colorize("\tGemspec files config updated", :green)
       end
 
       private
