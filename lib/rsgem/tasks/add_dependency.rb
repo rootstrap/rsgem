@@ -3,6 +3,8 @@
 module RSGem
   module Tasks
     class AddDependency < Base
+      OUTPUT = OutputStruct.new(name: :output_name)
+
       def perform
         return if already_installed?
 
@@ -33,6 +35,10 @@ module RSGem
 
       def gemspec_file
         @gemspec_file ||= File.read(context.gemspec_path)
+      end
+
+      def output_name
+        "Install #{dependency.name.capitalize}"
       end
 
       def write_to_gemspec

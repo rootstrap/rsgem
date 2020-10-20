@@ -139,7 +139,7 @@ RSpec.describe RSGem::Gem do
 
     context 'when gem name options is missing' do
       it 'raises a missing gem name error' do
-        expect { described_class.new({}).create }.to raise_error(RSGem::MissingGemNameError)
+        expect { described_class.new({}).create }.to raise_error(RSGem::Errors::MissingGemName)
       end
     end
 
@@ -162,7 +162,9 @@ RSpec.describe RSGem::Gem do
 
       it 'exits the process' do
         expect_any_instance_of(Object).to receive(:system).and_return(false)
-        expect { described_class.new(gem_name: gem_name).create }.to raise_error(SystemExit)
+        expect { described_class.new(gem_name: gem_name).create }.to(
+          raise_error(RSGem::Errors::Base)
+        )
       end
     end
   end

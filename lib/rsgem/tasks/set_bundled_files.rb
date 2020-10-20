@@ -12,6 +12,8 @@ module RSGem
     #   - lib/**/* (everything inside lib)
     #
     class SetBundledFiles < Base
+      OUTPUT = OutputStruct.new(name: 'Set bundled files')
+
       def perform
         # Explaining the regular expression:
         # [spec.files][one or more white spaces][=][one or more white spaces][anything until "do"]
@@ -22,8 +24,6 @@ module RSGem
           "spec.files = Dir['LICENSE.txt', 'README.md', 'lib/**/*']"
         )
         write
-
-        puts Colors.colorize("\tGemspec files config updated", :green)
       end
 
       private

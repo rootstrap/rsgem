@@ -3,6 +3,8 @@
 module RSGem
   module Tasks
     class AddCodeAnalysis < Base
+      OUTPUT = OutputStruct.new(name: 'Add code analysis')
+
       def perform
         File.open(context.rakefile_path, 'w') do |file|
           file.puts rakefile

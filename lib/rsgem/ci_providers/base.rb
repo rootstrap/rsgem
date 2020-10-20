@@ -16,19 +16,17 @@ module RSGem
         remove_travis(context)
         destination = "#{context.folder_path}/#{config_file_destination}"
 
-        File.delete(destination) if File.exist?(destination)
-        FileUtils.mkdir_p(File.dirname(destination))
-        File.open(destination, 'w') do |file|
+        ::File.delete(destination) if ::File.exist?(destination)
+        ::FileUtils.mkdir_p(::File.dirname(destination))
+        ::File.open(destination, 'w') do |file|
           file.puts config_file_source_content
         end
-
-        puts Colors.colorize("\t#{display_name} CI configuration added", :green)
       end
 
       private
 
       def config_file_source_content
-        File.read(config_file_source)
+        ::File.read(config_file_source)
       end
 
       #
@@ -36,9 +34,9 @@ module RSGem
       #
       def remove_travis(context)
         travis_path = "#{context.folder_path}/.travis.yml"
-        return unless File.exist?(travis_path)
+        return unless ::File.exist?(travis_path)
 
-        File.delete(travis_path)
+        ::File.delete(travis_path)
       end
     end
   end

@@ -3,6 +3,7 @@
 module RSGem
   module Tasks
     class CleanGemspec < Base
+      OUTPUT = OutputStruct.new(name: 'Clean gemspec')
       KEYS_TO_EMPTY = %w[summary description homepage].freeze
 
       def perform

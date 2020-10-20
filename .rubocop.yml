@@ -8,3 +8,8 @@ Gemspec/RequiredRubyVersion:
 Metrics/BlockLength:
   Exclude:
     - spec/**/*
+
+Metrics/AbcSize:
+  Exclude:
+    - lib/rsgem/gem.rb
+    - lib/rsgem/tasks/output.rb

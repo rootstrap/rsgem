@@ -1,13 +1,17 @@
 # frozen_string_literal: true
 
 require 'date'
+require 'fileutils'
 require 'rsgem/version'
 require 'rsgem/gem'
-require 'rsgem/errors/missing_gem_name_error'
+require 'rsgem/errors/base'
+require 'rsgem/errors/missing_gem_name'
 require 'rsgem/ci_providers/base'
 require 'rsgem/ci_providers/github_actions'
 require 'rsgem/ci_providers/travis'
+require 'rsgem/tasks/output'
 require 'rsgem/tasks/base'
+require 'rsgem/tasks/add_ci_provider'
 require 'rsgem/tasks/add_code_analysis'
 require 'rsgem/tasks/add_dependency'
 require 'rsgem/tasks/clean_gemfile'

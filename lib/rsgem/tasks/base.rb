@@ -7,11 +7,19 @@ module RSGem
     # Child classes must implement the instance method +perform+.
     #
     class Base
+      include Output
+
       attr_reader :context, :args
 
       def initialize(context:, **args)
         @context = context
         @args = args
+      end
+
+      def call
+        with_output do
+          perform
+        end
       end
     end
   end

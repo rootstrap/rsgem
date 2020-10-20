@@ -14,11 +14,12 @@ module RSGem
     # https://github.com/rootstrap/tech-guides/blob/master/open-source/developing_gems.md#gemfilegemfilelockgemspec
     #
     class CleanGemfile < Base
+      OUTPUT = OutputStruct.new(name: 'Clean gemfile')
+
       def perform
         gemfile.gsub!(/gem .+\n/, '') # Remove all gem definitions
         gemfile.sub!(/\n\z/, '') # Remove last new line character
         write_to_gemfile
-        puts Colors.colorize("\tGemfile cleaned", :green)
       end
 
       private
