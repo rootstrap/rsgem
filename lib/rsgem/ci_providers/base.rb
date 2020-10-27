@@ -5,7 +5,7 @@ module RSGem
     class Base
       attr_reader :config_file_destination, :config_file_source, :name, :display_name
 
-      def initialize(config_file_source: nil, config_file_destination: nil, display_name:, name:)
+      def initialize(display_name:, name:, config_file_source: nil, config_file_destination: nil)
         @config_file_source = config_file_source
         @config_file_destination = config_file_destination
         @display_name = display_name
