@@ -5,7 +5,7 @@ module RSGem
     class RunRubocop < Base
       def perform
         puts "\tRubocop:"
-        @output = `cd #{context.folder_path} && bundle exec rubocop -a`
+        @output = `cd #{context.folder_path} && bundle exec rubocop -A`
         puts "\t\t#{last_line}"
       end
 
