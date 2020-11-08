@@ -28,7 +28,7 @@ RSpec.describe 'CLI' do
 
     it 'creates a new gem' do
       expect(subject).to include('Reek installed')
-      expect(subject).to include('Rubocop installed')
+      expect(subject).to include('Rubocop-rootstrap installed')
       expect(subject).to include('Simplecov installed')
       expect(subject).to include('Gemfile cleaned')
       expect(subject).to include('Gemfile.lock added to .gitignore')

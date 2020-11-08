@@ -32,7 +32,7 @@ RSpec.describe RSGem::Gem do
       end
 
       it 'adds rubocop to the gemspec' do
-        expect(gemspec).to include "spec.add_development_dependency 'rubocop'"
+        expect(gemspec).to include "spec.add_development_dependency 'rubocop-rootstrap'"
       end
 
       it 'adds simplecov to the gemspec' do
