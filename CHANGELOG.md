@@ -1,5 +1,9 @@
 # master
 
+* Add rubocop-rootstrap
+
+    *Juan Manuel Ramallo*
+
 * Add placeholder `email` and `name` when no git user is set, issuing a warning while doing so.
 * Add colors to output during gem creation.
 

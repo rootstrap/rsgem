@@ -5,7 +5,7 @@ module RSGem
     Rubocop = Base.new(
       config_file_source: "#{File.dirname(__FILE__)}/../support/rubocop.yml",
       config_file_destination: '.rubocop.yml',
-      name: 'rubocop'
+      name: 'rubocop-rootstrap'
     )
   end
 end

@@ -16,10 +16,12 @@ module RSGem
 
     def ci_provider
       @ci_provider ||= begin
-        return RSGem::Constants::DEFAULT_CI_PROVIDER unless (name = options[:ci_provider])
-
-        RSGem::Constants::CI_PROVIDERS.detect do |provider|
-          provider.name == name
+        if (name = options[:ci_provider])
+          RSGem::Constants::CI_PROVIDERS.detect do |provider|
+            provider.name == name
+          end
+        else
+          RSGem::Constants::DEFAULT_CI_PROVIDER
         end
       end
     end
