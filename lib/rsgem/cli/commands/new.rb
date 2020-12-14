@@ -17,7 +17,7 @@ module RSGem
 
         example [
           'foo                     # Creates a new gem called foo',
-          'bar --ci=github_actions # Creates a new gem called bar, with GitHub Actions as the '\
+          'bar --ci=travis         # Creates a new gem called bar, with Travis as the '\
           'CI provider',
           'foo_bar --bundler=--ext # Creates a new gem called foo_bar passing the --ext flag to '\
           'bundler'

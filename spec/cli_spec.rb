@@ -32,7 +32,7 @@ RSpec.describe 'CLI' do
       expect(subject).to include('Install Simplecov')
       expect(subject).to include('Clean gemfile')
       expect(subject).to include('Ignore gemfile.lock')
-      expect(subject).to include('Add CI configuration for Travis')
+      expect(subject).to include('Add CI configuration for Github Actions')
       expect(subject).to include('Bundle dependencies')
       expect(subject).to include('Run rubocop')
       expect(File.exist?(gem_name)).to eq true
