@@ -6,6 +6,6 @@ module RSGem
       RSGem::CIProviders::GithubActions,
       RSGem::CIProviders::Travis
     ].freeze
-    DEFAULT_CI_PROVIDER = RSGem::CIProviders::Travis
+    DEFAULT_CI_PROVIDER = RSGem::CIProviders::GithubActions
   end
 end

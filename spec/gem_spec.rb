@@ -18,10 +18,10 @@ RSpec.describe RSGem::Gem do
       let(:gemfile) { File.read("./#{gem_name}/Gemfile") }
       let(:gitignore) { File.read("./#{gem_name}/.gitignore") }
       let(:rakefile) { File.read("./#{gem_name}/Rakefile") }
-      let(:travis) { File.read("./#{gem_name}/.travis.yml") }
-      let(:expected_travis) { File.read('./lib/rsgem/support/travis.yml') }
       let(:spec_helper) { File.read("./#{gem_name}/spec/spec_helper.rb") }
       let(:license) { File.read("./#{gem_name}/LICENSE.txt") }
+      let(:github_actions) { File.read("./#{gem_name}/.github/workflows/ci.yml") }
+      let(:expected_github_actions) { File.read('./lib/rsgem/support/github_actions.yml') }
 
       it 'creates a new folder' do
         expect(list_files).to include gem_name
@@ -90,12 +90,12 @@ RSpec.describe RSGem::Gem do
         expect(gemspec).to include "spec.files = Dir['LICENSE.txt', 'README.md', 'lib/**/*']"
       end
 
-      it 'adds travis configuration file' do
-        expect(travis).to eq expected_travis
+      it 'adds github actions configuration file' do
+        expect(github_actions).to eq expected_github_actions
       end
 
-      it 'does not create a github actions configuration file' do
-        expect(File.exist?("./#{gem_name}/.github/workflows")).to eq false
+      it 'does not create a travis configuration file' do
+        expect(File.exist?("./#{gem_name}/.travis.yml")).to eq false
       end
 
       it 'adds simplecov configuration in spec helper file' do
@@ -107,23 +107,23 @@ RSpec.describe RSGem::Gem do
       end
     end
 
-    context 'with github actions as ci provider' do
+    context 'with travis as ci provider' do
       before(:all) do
-        described_class.new(gem_name: gem_name, ci_provider: 'github_actions').create
+        described_class.new(gem_name: gem_name, ci_provider: 'travis').create
       end
       after(:all) do
         `rm -rf ./#{gem_name}`
       end
 
-      let(:github_actions) { File.read("./#{gem_name}/.github/workflows/ci.yml") }
-      let(:expected_github_actions) { File.read('./lib/rsgem/support/github_actions.yml') }
+      let(:travis) { File.read("./#{gem_name}/.travis.yml") }
+      let(:expected_travis) { File.read('./lib/rsgem/support/travis.yml') }
 
-      it 'adds github actions configuration file' do
-        expect(github_actions).to eq expected_github_actions
+      it 'adds travis configuration file' do
+        expect(travis).to eq expected_travis
       end
 
-      it 'does not create a travis configuration file' do
-        expect(File.exist?("./#{gem_name}/.travis.yml")).to eq false
+      it 'does not create a github actions configuration file' do
+        expect(File.exist?("./#{gem_name}/.github/workflows")).to eq false
       end
     end
 
