@@ -1,5 +1,7 @@
 # master
 
+# 1.0.0
+
 * Using Github Actions as the default CI provider
 * Dropping Ruby 2.4 support
 * New CLI output format
