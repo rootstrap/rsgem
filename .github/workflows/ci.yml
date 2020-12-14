@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby_version: [2.4.x, 2.5.x, 2.6.x, 2.7.x]
+        ruby_version: [2.5.x, 2.6.x, 2.7.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -20,10 +20,6 @@ jobs:
       run: |
         echo "::set-output name=installed_ruby_version::$(ruby -e 'print RUBY_VERSION')"
         echo "::set-output name=cacheTimeAnchor::$(ruby -e 'require %Q{date}; cacheExpirationSeconds = 60*60*24; print (Time.now.to_i / cacheExpirationSeconds)')"
-    - name: Update ruby gems when testing with Ruby 2.4.x
-      if: startsWith(matrix.ruby_version, '2.4')
-      run: |
-        gem update --system --no-document
     - name: Download CodeClimate reporter
       run: |
         curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
