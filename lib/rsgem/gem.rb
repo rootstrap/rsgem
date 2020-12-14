@@ -9,6 +9,7 @@ module RSGem
     end
 
     def create
+      puts 'Creating gem...'
       create_gem
       ensure_author
       add_code_analysis
@@ -21,16 +22,17 @@ module RSGem
       set_license_file
       bundle_dependencies
       run_rubocop
+      puts "#{context.gem_name} created"
     end
 
     private
 
     def add_ci_provider
-      context.ci_provider.install(context)
+      Tasks::AddCIProvider.new(context: context).call
     end
 
     def add_code_analysis
-      Tasks::AddCodeAnalysis.new(context: context).perform
+      Tasks::AddCodeAnalysis.new(context: context).call
     end
 
     def add_dependencies
@@ -41,16 +43,16 @@ module RSGem
         Dependencies::Rubocop,
         Dependencies::Simplecov
       ].each do |dependency|
-        Tasks::AddDependency.new(context: context, dependency: dependency).perform
+        Tasks::AddDependency.new(context: context, dependency: dependency).call
       end
     end
 
     def clean_gemfile
-      Tasks::CleanGemfile.new(context: context).perform
+      Tasks::CleanGemfile.new(context: context).call
     end
 
     def clean_gemspec
-      Tasks::CleanGemspec.new(context: context).perform
+      Tasks::CleanGemspec.new(context: context).call
     end
 
     def context
@@ -58,31 +60,31 @@ module RSGem
     end
 
     def create_gem
-      Tasks::CreateGem.new(context: context).perform
+      Tasks::CreateGem.new(context: context).call
     end
 
     def ensure_author
-      Tasks::EnsureAuthor.new(context: context).perform
+      Tasks::EnsureAuthor.new(context: context).call
     end
 
     def ignore_gemfile_lock
-      Tasks::IgnoreGemfileLock.new(context: context).perform
+      Tasks::IgnoreGemfileLock.new(context: context).call
     end
 
     def run_rubocop
-      Tasks::RunRubocop.new(context: context).perform
+      Tasks::RunRubocop.new(context: context).call
     end
 
     def bundle_dependencies
-      Tasks::BundleDependencies.new(context: context).perform
+      Tasks::BundleDependencies.new(context: context).call
     end
 
     def set_bundled_files
-      Tasks::SetBundledFiles.new(context: context).perform
+      Tasks::SetBundledFiles.new(context: context).call
     end
 
     def set_license_file
-      Tasks::SetLicenseFile.new(context: context).perform
+      Tasks::SetLicenseFile.new(context: context).call
     end
   end
 end

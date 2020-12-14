@@ -3,6 +3,10 @@
 module RSGem
   module Tasks
     class EnsureAuthor < Base
+      OUTPUT = OutputStruct.new(
+        name: 'Ensure author',
+        warning: :warning_message
+      )
       TEMP_USERNAME = 'change_me'
       TEMP_EMAIL = 'change_me@notanemail.com'
 
@@ -21,21 +25,25 @@ module RSGem
       end
 
       def ensure_author
-        unless system('git config user.email')
-          puts "Warning: No git email set, setting #{TEMP_EMAIL} for now,
-                please change this before publishing your gem."
-          gemspec.gsub!(/spec.email\s+=\s+.+/,
-                        "spec.email = ['#{TEMP_EMAIL}']")
-        end
+        return unless missing_git_user?
 
-        unless system('git config user.name')
-          puts "Warning: No git username set, setting #{TEMP_USERNAME} for now,
-                please change this before publishing your gem."
-          gemspec.gsub!(/spec.authors\s+=\s+.+/,
-                        "spec.authors = ['#{TEMP_USERNAME}']")
-        end
+        gemspec.gsub!(/spec.email\s+=\s+.+/,
+                      "spec.email = ['#{TEMP_EMAIL}']")
 
+        gemspec.gsub!(/spec.authors\s+=\s+.+/,
+                      "spec.authors = ['#{TEMP_USERNAME}']")
         write_gemspec
+      end
+
+      def missing_git_user?
+        `git config user.email`.strip.empty? || `git config user.name`.strip.empty?
+      end
+
+      def warning_message
+        return unless missing_git_user?
+
+        "No git user set. Setting #{TEMP_EMAIL} and #{TEMP_USERNAME} in gemspec, "\
+        'please change this before publishing your gem.'
       end
     end
   end

@@ -1,5 +1,10 @@
 # master
 
+* Dropping Ruby 2.4 support
+* New CLI output format
+
+    *Juan Manuel Ramallo*
+
 * Add rubocop-rootstrap
 
     *Juan Manuel Ramallo*

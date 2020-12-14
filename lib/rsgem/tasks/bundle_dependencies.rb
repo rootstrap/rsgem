@@ -3,16 +3,12 @@
 module RSGem
   module Tasks
     class BundleDependencies < Base
+      OUTPUT = OutputStruct.new(name: 'Bundle dependencies')
+
       def perform
-        puts Colors.colorize("\tRunning bundle install:", :blue)
-        @output = `cd #{context.folder_path} && bundle`
-        puts Colors.colorize("\t\t#{last_line}", :blue)
-      end
+        return if system("cd #{context.folder_path} && bundle", out: '/dev/null')
 
-      private
-
-      def last_line
-        @output.split("\n").last
+        raise RSGem::Errors::Base
       end
     end
   end

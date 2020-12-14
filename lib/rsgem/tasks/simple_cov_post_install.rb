@@ -3,6 +3,7 @@
 module RSGem
   module Tasks
     class SimpleCovPostInstall < Base
+      OUTPUT = OutputStruct.new
       def perform
         spec_helper.sub!("require \"#{gem_name}\"", <<~RUBY)
           require 'simplecov'

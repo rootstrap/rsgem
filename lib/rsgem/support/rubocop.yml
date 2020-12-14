@@ -4,3 +4,19 @@ inherit_gem:
 
 Gemspec/RequiredRubyVersion:
   Enabled: false
+
+Style/RescueModifier:
+  Exclude:
+    - spec/**/*
+
+Naming/PredicateName:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true

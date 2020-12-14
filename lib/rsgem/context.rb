@@ -7,7 +7,7 @@ module RSGem
     def initialize(options:)
       @options = options
 
-      raise MissingGemNameError unless options[:gem_name]
+      raise Errors::MissingGemName unless options[:gem_name]
     end
 
     def bundler_options
