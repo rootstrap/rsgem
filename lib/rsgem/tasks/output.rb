@@ -5,7 +5,7 @@ module RSGem
     #
     # Structure to bundle all messages from a task
     #
-    OutputStruct = Struct.new(:name, :success, :warning, :error, keyword_init: true)
+    OutputStruct = Struct.new(:name, :success, :warning, keyword_init: true)
 
     module Output
       def with_output
