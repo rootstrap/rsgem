@@ -105,16 +105,6 @@ RSpec.describe RSGem::Gem do
       it 'adds license file with Rootstrap name' do
         expect(license).to include "Copyright (c) #{Date.today.year} Rootstrap"
       end
-
-      context 'running inside the new gem' do
-        before { Dir.chdir(gem_name) }
-        after { Dir.chdir('../') }
-
-        it 'makes the code analysis task pass' do
-          load File.expand_path("../#{gem_name}/Rakefile", __dir__)
-          expect { Rake::Task['code_analysis'].invoke }.not_to raise_error
-        end
-      end
     end
 
     context 'with github actions as ci provider' do
