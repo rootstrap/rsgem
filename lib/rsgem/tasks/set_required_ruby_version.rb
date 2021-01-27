@@ -6,15 +6,18 @@ module RSGem
       OUTPUT = OutputStruct.new(name: 'Set required Ruby version')
 
       def perform
-        gemspec.gsub!(
-          /(spec.required_ruby_version.*)=(.*)\n/,
-          "spec.required_ruby_version = Gem::Requirement.new('>= 2.5.0')\n"
-        )
-
+        set_required_ruby_version
         write
       end
 
       private
+
+      def set_required_ruby_version
+        gemspec.gsub!(
+          /(spec.required_ruby_version.*)=(.*)\n/,
+          "spec.required_ruby_version = Gem::Requirement.new('>= 2.5.0')\n"
+        )
+      end
 
       def gemspec
         @gemspec ||= File.read(context.gemspec_path)
