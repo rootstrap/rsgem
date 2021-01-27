@@ -1,5 +1,11 @@
 # master
 
+# 1.1.0
+
+* Update Bundler and Ruby versions
+
+    *Horacio Bertorello*
+
 # 1.0.0
 
 * Using Github Actions as the default CI provider
