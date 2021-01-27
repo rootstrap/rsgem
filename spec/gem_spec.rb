@@ -105,6 +105,10 @@ RSpec.describe RSGem::Gem do
       it 'adds license file with Rootstrap name' do
         expect(license).to include "Copyright (c) #{Date.today.year} Rootstrap"
       end
+
+      it 'sets the required Ruby version to 2.5' do
+        expect(gemspec).to include "Gem::Requirement.new('>= 2.5.0')"
+      end
     end
 
     context 'with travis as ci provider' do

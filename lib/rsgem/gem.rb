@@ -20,6 +20,7 @@ module RSGem
       clean_gemspec
       set_bundled_files
       set_license_file
+      set_required_ruby_version
       bundle_dependencies
       run_rubocop
       puts "#{context.gem_name} created"
@@ -85,6 +86,10 @@ module RSGem
 
     def set_license_file
       Tasks::SetLicenseFile.new(context: context).call
+    end
+
+    def set_required_ruby_version
+      Tasks::SetRequiredRubyVersion.new(context: context).call
     end
   end
 end
